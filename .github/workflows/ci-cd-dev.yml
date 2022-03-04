@@ -30,6 +30,8 @@ jobs:
         with:
           name: example_github_actions
           path: staging
+      - name: Variable Heroku
+        run: echo "The API key is:${{ secrets.HEROKU_API_KEY }}"
       - name: Login to Heroku Container registry
         env: 
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
