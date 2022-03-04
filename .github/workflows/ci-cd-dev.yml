@@ -38,4 +38,4 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
           HEROKU_APP_NAME: oruam-rent-heroku
-        run: heroku buildpacks:clear && heroku plugins:install java && heroku create --no-remote && heroku deploy:jar staging/rent-0.0.1-SNAPSHOT.jar --app oruam-rent-heroku
+        run: heroku buildpacks:clear --app oruam-rent-heroku && heroku plugins:install java && heroku create --no-remote && heroku deploy:jar staging/rent-0.0.1-SNAPSHOT.jar --app oruam-rent-heroku
