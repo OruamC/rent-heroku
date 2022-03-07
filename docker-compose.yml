@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+   app:
+      container_name: app-spring-rent
+      image: app-spring-rent
+      build: ./
+      environment:
+         - APP_PROFILE=dev
+      ports:
+         - '8080:8080'
+      restart: always
+      depends_on:
+         - db
+   db:
+      container_name: rent_postgres
+      image: postgres
+      environment:
+         - POSTGRES_USER=root
+         - POSTGRES_PASSWORD=root
+         - POSTGRES_DB=rent
+      ports:
+         - '5432:5432'
+      volumes:
+         - rent_data:/var/lib/postgres'
+   
+volumes:
+   rent_data:
